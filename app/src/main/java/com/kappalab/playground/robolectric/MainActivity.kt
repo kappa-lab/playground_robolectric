@@ -30,5 +30,11 @@ class MainActivity : AppCompatActivity() {
 
 
         startService(Intent(this@MainActivity, MyService::class.java))
+        Log.i(TAG, "MyService.started ${MyService.started}")
+    }
+
+    override fun onPause() {
+        Log.i(TAG, "onPause MyService.started ${MyService.started}")
+        super.onPause()
     }
 }

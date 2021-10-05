@@ -6,8 +6,12 @@ import android.os.IBinder
 import android.util.Log
 
 class MyService : Service() {
+
     companion object {
         private const val TAG = "MyService"
+
+        var started: Boolean = false
+            private set
     }
 
     override fun onBind(intent: Intent): IBinder? {
@@ -17,6 +21,7 @@ class MyService : Service() {
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         Log.i(TAG, "onStartCommand: $intent")
+        started = true
         return super.onStartCommand(intent, flags, startId)
     }
 }
