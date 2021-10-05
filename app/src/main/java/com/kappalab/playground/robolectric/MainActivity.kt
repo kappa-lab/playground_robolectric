@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         Log.i(TAG, "startService")
 
-        startService(Intent(this@MainActivity, MyService::class.java))
+        startService(Intent(this, MyService::class.java))
         Log.i(TAG, "MyService.started ${MyService.started}")
     }
 
@@ -38,4 +38,11 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG, "onPause MyService.started ${MyService.started}")
         super.onPause()
     }
+
+    override fun onResume() {
+        Log.i(TAG, "onResume MyService.started ${MyService.started}")
+        startService(Intent(this, MyService::class.java))
+        super.onResume()
+    }
+
 }

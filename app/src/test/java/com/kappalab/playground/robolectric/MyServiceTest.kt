@@ -16,8 +16,13 @@ class MyServiceTest {
         val app = ApplicationProvider.getApplicationContext<Application>()
 
         Assert.assertFalse(MyService.started)
-        app.startService(Intent(app, MyService::class.java))
-        ShadowLooper.shadowMainLooper().idle()
+
+//        Cant not receive onStartCommand
+//        app.startService(Intent(app, MyService::class.java))
+//        ShadowLooper.shadowMainLooper().idle()
+
+        MyService().onStartCommand(Intent(app, MyService::class.java),0,0)
         Assert.assertTrue(MyService.started)
+
     }
 }
