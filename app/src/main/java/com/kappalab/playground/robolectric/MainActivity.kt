@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             Log.i(TAG, "callback AirPlane $it")
         }
 
+        Log.i(TAG, "startService")
 
         startService(Intent(this@MainActivity, MyService::class.java))
         Log.i(TAG, "MyService.started ${MyService.started}")

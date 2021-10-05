@@ -15,9 +15,9 @@ class MyServiceTest {
     fun testStarted() {
         val app = ApplicationProvider.getApplicationContext<Application>()
 
-        Assert.assertEquals(false, MyService.started)
+        Assert.assertFalse(MyService.started)
         app.startService(Intent(app, MyService::class.java))
         ShadowLooper.shadowMainLooper().idle()
-        Assert.assertEquals(true, MyService.started)
+        Assert.assertTrue(MyService.started)
     }
 }
